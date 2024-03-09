@@ -32,13 +32,12 @@ pacman -Syy
 ### Install Packages
 # copied from https://gitlab.com/eflinux/arch-basic/-/blob/master/base-uefi.sh?ref_type=heads
 # if installing on a laptop, also install tlp and acpi_call
-pacman --noconfirm -S grub efibootmgr networkmanager network-manager-applet dialog wpa_supplicant avahi inetutils dnsutils cups alsa-utils pipewire pipewire-alsa pipewire-pulse pipewire-jack bash-completion openssh rsync acpi dnsmasq openbsd-netcat ipset firewalld sof-firmware nss-mdns os-prober ntfs-3g man-db htop fastfetch xf86-video-amdgpu xf86-video-intel pacman-contrib grub-btrfs xdg-user-dirs xdg-utils duf inxi preload
+pacman --noconfirm -S grub efibootmgr networkmanager network-manager-applet dialog wpa_supplicant avahi inetutils dnsutils cups alsa-utils pipewire pipewire-alsa pipewire-pulse pipewire-jack bash-completion openssh rsync acpi dnsmasq openbsd-netcat ipset firewalld sof-firmware nss-mdns os-prober ntfs-3g man-db htop fastfetch xf86-video-amdgpu xf86-video-intel pacman-contrib grub-btrfs xdg-user-dirs xdg-utils duf inxi
 
 ### Enable Services
 systemctl enable NetworkManager
 systemctl enable fstrim.timer # for ssd
 systemctl enable firewalld
-systemctl enable preload # for faster opening of apps
 
 ### Grub installation
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB --removable
