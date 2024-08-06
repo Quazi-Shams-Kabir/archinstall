@@ -31,13 +31,17 @@ pacman -Syy
 
 ### Install Packages
 # copied from https://gitlab.com/eflinux/arch-basic/-/blob/master/base-uefi.sh?ref_type=heads
-# if installing on a laptop, also install tlp and acpi_call
-pacman --noconfirm -S grub efibootmgr networkmanager network-manager-applet dialog wpa_supplicant avahi inetutils dnsutils cups alsa-utils pipewire pipewire-alsa pipewire-pulse pipewire-jack bash-completion openssh rsync acpi dnsmasq openbsd-netcat ipset firewalld sof-firmware nss-mdns os-prober ntfs-3g man-db htop fastfetch xf86-video-amdgpu xf86-video-intel pacman-contrib grub-btrfs xdg-user-dirs xdg-utils duf inxi
+# if installing on a laptop, also install tlp
+# will see if I need these avahi nss-mdns
+pacman -S grub efibootmgr networkmanager network-manager-applet dialog wpa_supplicant alsa-utils pipewire pipewire-alsa pipewire-pulse pipewire-jack bash-completion openssh rsync man-db htop fastfetch pacman-contrib grub-btrfs xdg-user-dirs xdg-utils duf inxi eza xwaylandvideobridge gnome-disk-utility firewalld os-prober ntfs-3g intel-media-driver libva-mesa-driver ttf-jetbrains-mono-nerd noto-fonts-emoji noto-fonts sof-firmware inetutils reflector curl wget
 
 ### Enable Services
 systemctl enable NetworkManager
 systemctl enable fstrim.timer # for ssd
 systemctl enable firewalld
+systemctl enable reflector.timer
+# systemctl enable avahi-daemon
+# systemctl enable tlp # my current laptop battery is dead
 
 ### Grub installation
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB --removable
