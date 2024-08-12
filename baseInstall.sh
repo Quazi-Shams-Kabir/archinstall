@@ -34,7 +34,7 @@ mount -o compress=zstd,noatime,ssd,space_cache=v2,discard=async,subvol=@log /dev
 mount /dev/$sda1 /mnt/boot/efi
 
 ### Install base packages
-pacstrap -K /mnt base base-devel git linux linux-firmware linux-zen linux-headers linux-zen-headers neovim intel-ucode mtools dosfstools btrfs-progs
+pacstrap -K /mnt base base-devel git linux linux-firmware linux-headers neovim intel-ucode mtools dosfstools btrfs-progs
 
 ### Generate fstab
 genfstab -U /mnt >> /mnt/etc/fstab
@@ -52,7 +52,7 @@ cp paru.sh /mnt/archinstall/
 cp yay.sh /mnt/archinstall/
 cp timeshift.sh /mnt/archinstall/
 cp snapshot.sh /mnt/archinstall/
-# cp 6-preload.sh /mnt/archinstall/
+cp preload.sh /mnt/archinstall/
 
 ### Chroot to installed sytem and run configuration script
 arch-chroot /mnt ./archinstall/baseConfiguration.sh
