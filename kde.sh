@@ -1,11 +1,11 @@
 #!/bin/bash
 
 #read from https://github.com/XxAcielxX/arch-plasma-install?tab=readme-ov-file#xorg--gpu-drivers
-reflector --latest 6 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
+# reflector --latest 6 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
 
-sudo firewall-cmd --add-port=1025-65535/tcp --permanent
-sudo firewall-cmd --add-port=1025-65535/udp --permanent
-sudo firewall-cmd --reload
+# sudo firewall-cmd --add-port=1025-65535/tcp --permanent
+# sudo firewall-cmd --add-port=1025-65535/udp --permanent
+# sudo firewall-cmd --reload
 
 # if use discover to update apps, packagekit-qt6 is needed
 sudo pacman -S --noconfirm xorg plasma konsole dolphin partitionmanager kde-inotify-survey gwenview ark kate kcalc spectacle
